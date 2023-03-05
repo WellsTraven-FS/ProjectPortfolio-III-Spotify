@@ -1,0 +1,33 @@
+{
+    "name": "projectportfolio-iii-spotify",
+    "version": "1.0.0",
+    "description": "Backend Spotify",
+    "main": "index.js",
+    "scripts": {
+        "dev": "nodemon server.js",
+        "test": "echo \"Error: no test specified\" && exit 1"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/WellsTraven-FS/ProjectPortfolio-III-Spotify.git"
+    },
+    "keywords": [
+        "Backend",
+        "API",
+        "Spotify"
+    ],
+    "author": "Traven Wells",
+    "license": "ISC",
+    "bugs": {
+        "url": "https://github.com/WellsTraven-FS/ProjectPortfolio-III-Spotify/issues"
+    },
+    "homepage": "https://github.com/WellsTraven-FS/ProjectPortfolio-III-Spotify#readme",
+    "dependencies": {
+        "cors": "^2.8.5",
+        "dotenv": "^16.0.3",
+        "express": "^4.18.2",
+        "mongoose": "^7.0.0",
+        "nodemon": "^2.0.21",
+        "path": "^0.12.7"
+    }
+}
