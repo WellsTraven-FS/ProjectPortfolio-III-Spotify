@@ -1,24 +1,27 @@
-const mongoose = require("mongoose");
-const validateEmail = (email) => {
-    return /^\S+@\S+\.S+$/.test(email);
+"use strict";
+const { Model } = require("sequelize");
+module.exports = (sequelize, DataTypes) => {
+    class SpotifyToken extends Model {
+        /**
+         * Helper method for defining associations.
+         * This method is not a part of Sequelize lifecycle.
+         * The `models/index` file will call this method automatically.
+         */
+        static associate(models) {
+            // define association here
+        }
+    }
+    SpotifyToken.init(
+        {
+            access_token: DataTypes.STRING,
+            token_type: DataTypes.STRING,
+            expires_in: DataTypes.BIGINT,
+            refresh_token: DataTypes.STRING,
+        },
+        {
+            sequelize,
+            modelName: "SpotifyToken",
+        }
+    );
+    return SpotifyToken;
 };
-
-const loginSchema = new mongoose.Schema({
-    email: {
-        type: String,
-        unique: true,
-        lowercase: true,
-        require: "Email is required",
-        validate: [validateEmail, "Email Invalid"],
-    },
-    password: {
-        type: String,
-    },
-    created_at: {
-        type: Date,
-        require: true,
-        default: Date.now,
-    },
-});
-
-module.exports = mongoose.model("Login", loginSchema);
