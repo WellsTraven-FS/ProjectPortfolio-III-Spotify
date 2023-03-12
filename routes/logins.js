@@ -1,21 +1,11 @@
 const express = require("express");
-const router = express.Router();
-const Login = require("../models/login");
+const dotifyRouter = express.Router();
+const dotifyController = require("../controllers/dotify");
 
-// RESTFULL API Endpoints
+dotifyRouter.get("/login", dotifyController.login);
+dotifyRouter.get("/auth", dotifyController.jwt, dotify.auth);
+dotifyRouter.get("/token", dotifyController.jwt, dotify.status);
+dotifyRouter.get("/status", dotifyController.jwt, dotifyController.status);
+dotifyRouter.get("/search", dotifyController.jwt, dotifyController.status);
 
-//Add User
-router.post("/:id", async (req, res) => {
-    const login = new Login({
-        email: req.body.email,
-        password: req.body.password,
-    });
-    try {
-        const newLogin = await login.save();
-        res.status(201).json(newLogin);
-    } catch (error) {
-        res.status(400).json({ message: error.message });
-    }
-});
-
-module.exports = router;
+module.exports = dotifyRouter;
